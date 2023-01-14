@@ -4,10 +4,10 @@ from ..core.models import TimeStampedModel
 from ..produto.models import Produto
 # Create your models here.
 
- MOVIMENTO = (
-     ('e', 'entrada'),
-     ('s', 'saida'),
- )
+MOVIMENTO = (
+    ('e', 'entrada'),
+    ('s', 'saida'),
+)
 
 
 class Estoque(TimeStampedModel):
