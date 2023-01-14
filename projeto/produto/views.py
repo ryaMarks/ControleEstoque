@@ -1,5 +1,7 @@
 from django.shortcuts import render
+from django.views.generic import CreateView
 from .models import Produto
+from .forms import ProdutoForm
 # Create your views here.
 
 
@@ -21,3 +23,10 @@ def produto_detail(request, pk):
         obj = obj.filter(produto__icontains=search)
     context = {'object': obj}
     return render(request, template_name, context)
+
+
+
+class ProdutoCreate(CreateView):
+    model = Produto
+    template_name = 'produto_form.html'
+    form_class = ProdutoForm
