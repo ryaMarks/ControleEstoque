@@ -18,6 +18,12 @@ class Estoque(TimeStampedModel):
     class Meta:
         ordering = ('-created',)
 
+    def __str__(self):
+        return '{} - {} - {}'.format(self.pk, self.nf, self.created.strftime('%d-%m-%Y'))
+
+    def nf_formated(self):
+        return str(self.nf).zfill(3)
+
 class EstoqueItens(models.Model):
     estoque = models.ForeignKey(
         Estoque,
