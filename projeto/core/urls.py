@@ -2,7 +2,7 @@ from django.urls import path
 
 from ..core import views as v
 
-app_name = 'projeto.core'
+app_name = 'core'
 
 
 urlpatterns = [

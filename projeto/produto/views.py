@@ -11,3 +11,13 @@ def produto_list(request):
         objects = objects.filter(produto__icontains=search)
     context = {'object_list': objects}
     return render(request, template_name, context)
+
+
+def produto_detail(request, pk):
+    template_name = 'produto_detail.html'
+    obj = Produto.objects.get(pk=pk)
+    search = request.GET.get('search')
+    if search:
+        obj = obj.filter(produto__icontains=search)
+    context = {'object': obj}
+    return render(request, template_name, context)
