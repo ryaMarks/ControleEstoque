@@ -3,11 +3,11 @@ Controle de estoque com Django, inclui fluxo de caixa completo com estoque, e im
 
 ## Como rodar o projeto:
 
-* . Clone este repositório.
-* . Crie uma virtualenv com python 3.
-* . Ative a virtualEnv.
-* . Instale as dependencias.
-* . Rode as migrações.
+* Clone este repositório.
+* Crie uma virtualenv com python 3.
+* Ative a virtualEnv.
+* Instale as dependencias.
+* Rode as migrações.
 
 ```
 git clone "link ssh do repositorio"
