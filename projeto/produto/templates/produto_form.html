@@ -21,7 +21,15 @@
         {% endfor %}
       </div>
     {% endfor %}
-    <button type="submit" class="btn btn-success">Cadastrar</button>
+    <div class="form-inline buttons">
+      <a href="{% url 'produto:produto_list' %}" class="btn btn-danger">
+        <i class="fa fa-times"></i>
+        Cancelar
+      </a>
+      <div style="padding: 10px;">
+        <button type="submit" class="btn btn-success">Cadastrar</button>
+      </div>
+    </div>
   </form>
 
 {% endblock content %}
