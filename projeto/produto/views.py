@@ -12,6 +12,8 @@ def produto_list(request):
     search = request.GET.get('search')
     if search:
         objects = objects.filter(produto__icontains=search)
+    if search:
+        objects = objects.filter(produto__icontains=search)
     context = {'object_list': objects}
     return render(request, template_name, context)
 

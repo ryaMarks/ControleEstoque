@@ -1,6 +1,7 @@
+<!-- https://getbootstrap.com/docs/4.0/getting-started/introduction/#starter-template -->
 {% load static %}
 <!doctype html>
-<html lang="pt-br">
+<html lang="en">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -15,7 +16,10 @@
 
     <!-- Select2 -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    {% block css %}{% endblock css %}
 
   </head>
   <body>
