@@ -8,17 +8,6 @@ from .models import Estoque, EstoqueEntrada, EstoqueSaida, EstoqueItens
 # Create your views here.
 
 
-def estoque_entrada_list(request):
-    template_name = 'estoque_list.html'
-    objects = EstoqueEntrada.objects.all()
-    context = {
-        'object_list': objects,
-        'titulo': 'Entrada',
-        'url_add': 'estoque:estoque_entrada_add'
-    }
-    return render(request, template_name, context=context)
-
-
 class EstoqueEntradaList(ListView):
     model = EstoqueEntrada
     template_name = 'estoque_list.html'
@@ -30,24 +19,10 @@ class EstoqueEntradaList(ListView):
         return context
 
 
-def estoque_entrada_detail(request, pk):
-    template_name = 'estoque_detail.html'
-    obj = EstoqueEntrada.objects.get(pk=pk)
-    context = {
-        'object': obj,
-        'url_list': 'estoque:estoque_entrada_list'
-    }
-    return render(request, template_name, context)
-
-
-class EstoqueEntradaDetail(DetailView):
-    model = EstoqueEntrada
+class EstoqueDetail(DetailView):
+    model = Estoque
     template_name = 'estoque_detail.html'
 
-    def get_context_data(self, **kwargs):
-        context = super(EstoqueEntradaDetail, self).get_context_data(**kwargs)
-        context['url_list'] = 'estoque:estoque_entrada_list'
-        return context
 
 def dar_baixa_estoque(form):
     # pega os produtos a partir de (estoque)
@@ -88,22 +63,11 @@ def estoque_add(request, template_name, movimento, url):
 def estoque_entrada_add(request):
     template_name = 'estoque_entrada_form.html'
     movimento = 'e'
-    url = 'estoque:estoque_entrada_detail'
+    url = 'estoque:estoque_detail'
     context = estoque_add(request, template_name, movimento, url)
     if context.get('pk'):
         return HttpResponseRedirect(resolve_url(url, context.get('pk')))
     return render(request, template_name, context)
-
-
-def estoque_saida_list(request):
-    template_name = 'estoque_list.html'
-    objects = EstoqueSaida.objects.all()
-    context = {
-        'object_list': objects,
-        'titulo': 'Saida',
-        'url_add': 'estoque:estoque_saida_add'
-    }
-    return render(request, template_name, context=context)
 
 
 class EstoqueSaidaList(ListView):
@@ -115,16 +79,6 @@ class EstoqueSaidaList(ListView):
         context['titulo'] = 'Saida'
         context['url_add'] = 'estoque:estoque_saida_add'
         return context
-
-
-def estoque_saida_detail(request, pk):
-    template_name = 'estoque_detail.html'
-    obj = EstoqueSaida.objects.get(pk=pk)
-    context = {
-        'object': obj,
-        'url_list': 'estoque:estoque_saida_list'
-    }
-    return render(request, template_name, context)
 
 
 class EstoqueSaidaDetail(DetailView):
@@ -140,7 +94,7 @@ class EstoqueSaidaDetail(DetailView):
 def estoque_saida_add(request):
     template_name = 'estoque_saida_form.html'
     movimento = 's'
-    url = 'estoque:estoque_saida_detail'
+    url = 'estoque:estoque_detail'
     context = estoque_add(request, template_name, movimento, url)
     if context.get('pk'):
         return HttpResponseRedirect(resolve_url(url, context.get('pk')))
