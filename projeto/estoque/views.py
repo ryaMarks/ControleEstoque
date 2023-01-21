@@ -48,8 +48,9 @@ def estoque_add(request, template_name, movimento, url):
         form = EstoqueForm(request.POST, instance=estoque_form, prefix='main')
         formset = item_estoque_formset(request.POST, instance=estoque_form, prefix='estoque')
         if form.is_valid() and formset.is_valid():
-            form = form.save()
+            form = form.save(commit=False)
             form.movimento = movimento
+            form.funcionario = request.user
             form.save()
             formset.save()
             dar_baixa_estoque(form)

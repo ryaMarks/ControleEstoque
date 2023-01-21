@@ -26,7 +26,6 @@ def produto_detail(request, pk):
     return render(request, template_name, context)
 
 
-
 class ProdutoCreate(CreateView):
     model = Produto
     template_name = 'produto_form.html'
