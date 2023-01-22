@@ -9,4 +9,5 @@ urlpatterns = [
     path('<int:pk>/edit/', v.ProdutoUpdate.as_view(), name='produto_edit'),
     path('<int:pk>/json/', v.produto_json, name='produto_json'),
     path('import/csv/', v.import_csv, name='import_csv'),
+    path('export/xlsx/', v.exportar_produtos_xlsx, name='export_xlsx'),
 ]

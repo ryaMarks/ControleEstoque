@@ -3,10 +3,12 @@
 {% load widget_tweaks %}
 
 {% block content %}
-  <form method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    <input name="myfile" type="file" />
-    <button type="submit" class="btn btn-success">Upload</button>
-  </form>
+      <form method="POST" enctype="multipart/form-data">
+          <h5>Campos do produto:</h5>
+          <h6>produto,ncm,importado,estoque,estoque_minimo,prec</h6>
+        {% csrf_token %}
+        <input name="myfile" type="file" />
+        <button type="submit" class="btn btn-success">Upload</button>
+      </form>
 {% endblock content %}
 
