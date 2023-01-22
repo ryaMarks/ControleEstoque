@@ -1,7 +1,7 @@
 from django.db import models
 from django.urls import reverse_lazy
-
 # Create your models here.
+
 
 class Produto(models.Model):
     importado = models.BooleanField(default=False)
