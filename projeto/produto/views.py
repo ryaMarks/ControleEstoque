@@ -3,6 +3,7 @@ import io
 from datetime import datetime
 from ..produto.actions.export_xlsx import export_xlsx
 from django.http import JsonResponse, HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.urls import reverse
 from django.views.generic import CreateView, UpdateView, ListView
@@ -80,6 +81,7 @@ def save_data(data):
     Produto.objects.bulk_create(aux)
 
 
+@login_required
 def import_csv(request):
     print('entrou')
     if request.method == 'POST':  # and request.FILES['myfile']:
