@@ -5,7 +5,6 @@ from ..produto.actions.export_xlsx import export_xlsx
 from django.http import JsonResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
-from django.contrib import messages
 from django.views.generic import CreateView, UpdateView, ListView
 from .models import Produto
 from .forms import ProdutoForm
@@ -70,14 +69,12 @@ def save_data(data):
         importado = True if item.get('importado') == 'True' else False
         preco = item.get('preco')
         estoque = item.get('estoque')
-        estoque_minimo = item.get('estoque_minimo')
         obj = Produto(
             produto=produto,
             ncm=ncm,
             importado=importado,
             preco=preco,
             estoque=estoque,
-            estoque_minimo=estoque_minimo,
         )
         aux.append(obj)
     Produto.objects.bulk_create(aux)
@@ -112,11 +109,9 @@ def exportar_produtos_xlsx(request):
         'produto',
         'preco',
         'estoque',
-        'estoque_minimo',
-        'categoria__categoria',
     )
     columns = ('Importado', 'NCM', 'Produto', 'Preço',
-               'Estoque', 'Estoque mínimo', 'Categoria')
+               'Estoque',)
     response = export_xlsx(model, filename_final, queryset, columns)
     return response
 

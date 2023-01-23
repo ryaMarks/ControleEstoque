@@ -5,10 +5,17 @@
 {% block content %}
       <form method="POST" enctype="multipart/form-data">
           <h5>Campos do produto:</h5>
-          <h6>produto,ncm,importado,estoque,estoque_minimo,prec</h6>
         {% csrf_token %}
         <input name="myfile" type="file" />
-        <button type="submit" class="btn btn-success">Upload</button>
+          <div class="form-inline buttons">
+              <a href="{% url 'produto:produto_list' %}" class="btn btn-danger">
+                <i class="fa fa-times"></i>
+                Cancelar
+              </a>
+              <div style="padding: 10px;">
+                <button type="submit" class="btn btn-success">Upload</button>
+              </div>
+          </div>
       </form>
 {% endblock content %}
 

@@ -1,22 +1,17 @@
 from django.db import models
 from django.urls import reverse_lazy
+from datetime import datetime
 # Create your models here.
 
 
 class Produto(models.Model):
     importado = models.BooleanField(default=False)
-    ncm = models.CharField('NCM', max_length=8)
+    ncm = models.CharField('Nota Fiscal', max_length=8)
     produto = models.CharField(max_length=100, unique=True)
     preco = models.DecimalField('preço', max_digits=7, decimal_places=2)
-    estoque = models.IntegerField('estoque atual')
-    estoque_minimo = models.PositiveIntegerField('estoque minimo', default=0)
-    data = models.DateField(null=True, blank=True)
-    categoria = models.ForeignKey(
-        'Categoria',
-        on_delete=models.SET_NULL,
-        null=True,
-        blank=True
-    )
+    estoque = models.IntegerField('Quantidade')
+    data = datetime.now()
+
 
     class Meta:
         ordering = ('produto', )
@@ -25,7 +20,7 @@ class Produto(models.Model):
         return self.produto
 
     def get_absolute_url(self):
-        return reverse_lazy('produto:produto_detail', kwargs ={'pk': self.pk})
+        return reverse_lazy('produto:produto_detail', kwargs={'pk': self.pk})
 
     def to_dict_json(self):
         return {
@@ -33,13 +28,3 @@ class Produto(models.Model):
             'produto': self.produto,
             'estoque': self.estoque,
         }
-
-
-class Categoria(models.Model):
-    categoria = models.CharField(max_length=50, unique=True)
-
-    class Meta:
-        ordering = ('categoria',)
-
-    def __str__(self):
-        return self.categoria
