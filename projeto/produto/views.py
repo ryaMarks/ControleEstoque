@@ -116,4 +116,3 @@ def exportar_produtos_xlsx(request):
                'Estoque',)
     response = export_xlsx(model, filename_final, queryset, columns)
     return response
-

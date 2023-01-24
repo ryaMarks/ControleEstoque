@@ -1,7 +1,6 @@
 from django.db import models
-
-
 # Create your models here.
+
 
 # Classe com as datas de criação e modificacao
 class TimeStampedModel(models.Model):

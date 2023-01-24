@@ -106,3 +106,4 @@ def estoque_saida_add(request):
     if context.get('pk'):
         return HttpResponseRedirect(resolve_url(url, context.get('pk')))
     return render(request, template_name, context)
+

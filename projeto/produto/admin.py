@@ -16,4 +16,3 @@ class ProdutoAdmin(admin.ModelAdmin):
     list_filter = ('importado',)
 
 
-
