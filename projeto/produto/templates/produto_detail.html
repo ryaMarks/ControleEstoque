@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <a href="{% url 'produto:produto_list' %}">Voltar</a>
     <h1>{{object}}
         <span class="pull-right">
             <a href="{% url 'produto:produto_edit' object.pk %}">
@@ -9,6 +8,8 @@
                     <span class="fa fa-pencil">Editar</span>
                 </button>
             </a>
+            <a href="{% url 'produto:produto_list' %}" class="btn btn-danger">Voltar</a>
+            <a href="{% url 'produto:produto_delete' object.pk %}" class="btn btn-danger">Delete</a>
         </span>
     </h1>
 

@@ -52,6 +52,13 @@ class ProdutoUpdate(CreateView):
     form_class = ProdutoForm
 
 
+@login_required
+def produto_delete(request, pk):
+    produto = Produto.objects.get(pk=pk)
+    produto.delete()
+    return render(request, 'produto_list.html')
+
+
 def produto_json(request, pk):
     # retorna o produto, ID e estoque
     produto = Produto.objects.filter(pk=pk)
