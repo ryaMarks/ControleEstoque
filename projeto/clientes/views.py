@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from .models import Cliente
 from .forms import ClienteForm
@@ -17,6 +18,14 @@ class ClientesList(ListView):
     paginate_by = 10
 
 
+@login_required
+def cliente_delete(request, pk):
+    cliente = Cliente.objects.get(pk=pk)
+    cliente.delete()
+    return render(request, 'clientes_list.html')
+
+
+@login_required
 def cliente_detail(request, pk):
     template_name = 'cliente_detail.html'
     obj = Cliente.objects.get(pk=pk)
