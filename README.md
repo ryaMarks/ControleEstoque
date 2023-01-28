@@ -8,6 +8,7 @@ Controle de estoque com Django, inclui fluxo de caixa completo com estoque, e im
 * Ative a virtualEnv.
 * Instale as dependencias.
 * Rode as migrações.
+* Crie um superusuario para editar configurações do sistema.
 
 ```
 git clone git@github.com:ryaMarks/ControleEstoque.git
@@ -16,8 +17,8 @@ sorce venv/bin/activate
 pip install -r requeriments.txt
 python contrib/env_gen.py
 python manage.py migrate
+python manage.py createsuperuser
 ```
-
 
 ### Links de consulta:
 

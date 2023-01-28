@@ -8,7 +8,13 @@ from django.views.generic import CreateView, ListView
 # Create your views here.
 class add_client(CreateView):
     model = Cliente
-    template_name = 'clientes_add.html'
+    template_name = 'cliente_form.html'
+    form_class = ClienteForm
+
+
+class ClienteUpdate(CreateView):
+    model = Cliente
+    template_name = 'cliente_form.html'
     form_class = ClienteForm
 
 
