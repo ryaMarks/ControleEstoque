@@ -2,9 +2,9 @@
 
 {% block content %}
 {% if object.movimento == 'e' %}
-    <a href="{% url 'estoque:estoque_entrada_list' %}">Voltar</a>
+    <a href="{% url 'estoque:estoque_entrada_list' %}" class="btn btn-warning">Voltar</a>
 {% else %}
-    <a href="{% url 'estoque:estoque_saida_list' %}">Voltar</a>
+    <a href="{% url 'estoque:estoque_saida_list' %}" class="btn btn-warning">Voltar</a>
 {% endif %}
 
 {% if object.movimento == 'e' %}
