@@ -17,3 +17,11 @@ pip install -r requeriments.txt
 python contrib/env_gen.py
 python manage.py migrate
 ```
+
+
+### Links de consulta:
+
+
+* [python-decouple](https://github.com/henriquebastos/python-decouple)
+* [deploy no PythonAnywhere](https://tutorial.djangogirls.org/pt/deploy/)
+* [Carregando arquivos estaticos no deploy](https://pt.stackoverflow.com/questions/262043/problemas-carregar-static-files-no-django-em-deploy-no-heroku)
