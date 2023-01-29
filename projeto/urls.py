@@ -14,4 +14,5 @@ urlpatterns = [
     path('produto/', include('projeto.produto.urls')),
     path('estoque/', include('projeto.estoque.urls')),
     path('logout/', logout_then_login, name='logout'),
+    path('user/', include('projeto.accounts.urls')),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

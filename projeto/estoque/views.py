@@ -26,6 +26,7 @@ class EstoqueDetail(DetailView):
     template_name = 'estoque_detail.html'
 
 
+@login_required
 def dar_baixa_estoque(form):
     # pega os produtos a partir de (estoque)
     produtos = form.estoques.all()
@@ -34,7 +35,7 @@ def dar_baixa_estoque(form):
         produto.estoque = item.saldo
         produto.save()
 
-
+@login_required
 def estoque_add(request, template_name, movimento, url):
     estoque_form = Estoque()
     item_estoque_formset = inlineformset_factory(

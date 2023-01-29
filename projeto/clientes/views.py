@@ -1,6 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from .models import Cliente
+from django.contrib import messages
 from .forms import ClienteForm
 from django.views.generic import CreateView, ListView
 
@@ -28,6 +29,7 @@ class ClientesList(ListView):
 def cliente_delete(request, pk):
     cliente = Cliente.objects.get(pk=pk)
     cliente.delete()
+    messages.success(request, 'Cliente deletado com sucesso.')
     return render(request, 'clientes_list.html')
 
 

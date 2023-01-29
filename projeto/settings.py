@@ -35,7 +35,8 @@ INSTALLED_APPS = [
     'projeto.core',
     'projeto.produto',
     'projeto.estoque',
-    'projeto.clientes'
+    'projeto.clientes',
+    'projeto.accounts'
 ]
 
 MIDDLEWARE = [
@@ -99,6 +100,10 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+AUTHENTICATION_BACKENDS = [
+    'projeto.accounts.backends.EmailOrUserBackend',
+]
+
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
@@ -117,8 +122,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-LOGIN_URL = '/admin/login/'
-LOGOUT_REDIRECT_URL = 'core:index'
+LOGIN_URL = '/user/login/'
+LOGOUT_REDIRECT_URL = 'accounts:login'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

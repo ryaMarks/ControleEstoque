@@ -1,0 +1,58 @@
+
+<!-- https://getbootstrap.com/docs/4.0/getting-started/introduction/#starter-template -->
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="https://www.djangoproject.com/favicon.ico">
+    <title>Estoque</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  </head>
+
+  <body>
+    <div class="col-md-6" style="padding: 30px;">
+      <form action="." method="post">
+        {% csrf_token %}
+        <!-- Email input -->
+        <div class="form-outline mb-4">
+          <input type="text" name="username" id="form2Example1" class="form-control" placeholder="Username ou Email" required autofocus/>
+        </div>
+
+        <!-- Password input -->
+        <div class="form-outline mb-4">
+          <input type="password" name="password" id="form2Example2" class="form-control" placeholder="Senha" required/>
+        </div>
+
+        <!-- 2 column grid layout for inline styling -->
+        <div class="row mb-4">
+          <div class="col d-flex justify-content-center">
+            <!-- Checkbox -->
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />
+              <label class="form-check-label" for="form2Example31"> Remember me </label>
+            </div>
+          </div>
+
+          <div class="col">
+            <!-- Simple link -->
+            <a href="#!">Esqueceu a senha?</a>
+          </div>
+        </div>
+
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary btn-block mb-4">Login</button>
+
+        <!-- Register buttons -->
+        <div class="text-center">
+          <p>Não tem conta? <a href="#!">Registre-se</a></p>
+        </div>
+      </form>
+    </div>
+    <!-- Optional JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>

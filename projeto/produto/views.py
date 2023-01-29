@@ -1,6 +1,7 @@
 import csv
 import io
 from datetime import datetime
+from django.contrib import messages
 from ..produto.actions.export_xlsx import export_xlsx
 from django.http import JsonResponse, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
@@ -12,6 +13,7 @@ from .forms import ProdutoForm
 # Create your views here.
 
 
+@login_required
 def produto_list(request):
     template_name = 'produto_list.html'
     objects = Produto.objects.all()
@@ -24,12 +26,12 @@ def produto_list(request):
     return render(request, template_name, context)
 
 
-class ProdutoList(ListView):
+class ProdutoList( ListView):
     model = Produto
     template_name = 'produto_list.html'
     paginate_by = 10
 
-
+@login_required
 def produto_detail(request, pk):
     template_name = 'produto_detail.html'
     obj = Produto.objects.get(pk=pk)
@@ -56,9 +58,11 @@ class ProdutoUpdate(CreateView):
 def produto_delete(request, pk):
     produto = Produto.objects.get(pk=pk)
     produto.delete()
+    messages.success(request, 'Produto deletado com sucesso.')
     return render(request, 'produto_list.html')
 
 
+@login_required
 def produto_json(request, pk):
     # retorna o produto, ID e estoque
     produto = Produto.objects.filter(pk=pk)
@@ -66,6 +70,7 @@ def produto_json(request, pk):
     return JsonResponse({'data': data})
 
 
+@login_required
 def save_data(data):
     '''
     Salva os dados no banco.
@@ -106,6 +111,7 @@ def import_csv(request):
     return render(request, template_name)
 
 
+@login_required
 def exportar_produtos_xlsx(request):
     MDATA = datetime.now().strftime('%Y-%m-%d')
     model = 'Produto'
