@@ -4,4 +4,5 @@ from ..accounts import views as v
 app_name = 'accounts'
 urlpatterns = [
     path('login/', v.user_login, name='login'),
+    path('new_user/', v.CreateUser.as_view(), name='new_user')
 ]
