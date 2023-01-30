@@ -25,7 +25,7 @@ def user_login(request):
 class CreateUser(CreateView):
     template_name = 'user_form.html'
     form_class = UsuarioForm
-    success_url = reverse_lazy('login')
+    success_url = reverse_lazy('accounts:user_login')
 
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
