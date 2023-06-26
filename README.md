@@ -12,8 +12,8 @@ Controle de estoque com Django, inclui fluxo de caixa completo com estoque, e im
 
 ```
 git clone git@github.com:ryaMarks/ControleEstoque.git
-python -m venv venv
-source venv/Scripts/activate
+python -m venv .venv
+source .venv/Scripts/activate
 pip install -r requeriments.txt
 python contrib/env_gen.py
 python manage.py migrate
