@@ -34,9 +34,6 @@ INSTALLED_APPS = [
     'rest_framework',
     # meus apps
     'projeto.core',
-    'projeto.produto',
-    'projeto.estoque',
-    'projeto.clientes',
     'projeto.accounts'
 ]
 

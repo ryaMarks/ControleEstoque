@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 # Create your models here.
 
 
@@ -20,3 +21,9 @@ class TimeStampedModel(models.Model):
 
     class Meta:  # essa classe sera herdada para outros models
         abstract = True  # abstração herança de classe habilitada
+
+
+
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    last_activity = models.DateTimeField(null=True, blank=True)

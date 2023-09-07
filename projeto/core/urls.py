@@ -7,4 +7,5 @@ app_name = 'core'
 
 urlpatterns = [
     path('', v.index, name='index'),
+    path('ABC', v.online_users, name='print'),
 ]
