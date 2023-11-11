@@ -1,5 +1,5 @@
 # Estoque
-Controle de estoque com Django, inclui fluxo de caixa completo com estoque, e importação/exportação de planilha de registros.
+Controle de estoque com Django, inclui fluxo de caixa completo com estoque, e importação/exportação de planilha de registros. Esse programa usa a versão  [Python 3.11.5](https://www.python.org/downloads/release/python-3115/)
 
 ## Como rodar o projeto:
 
