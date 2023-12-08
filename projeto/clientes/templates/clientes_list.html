@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% for message in messages %}
+    {% if 'success' in message.tags %}
+      <p class="alert alert-success" role="alert"><span style="font-weight: bold">{{ message }}</span></p>
+    {% else %}
+      <p class="alert alert-danger" role="alert"><span style="font-weight: bold">{{ message }}</span></p>
+    {% endif %}
+{% endfor %}
+<div class="page-header">
+    <h3>Lista de Clientes
+        <span class="pull-right">
+            <a href="{% url 'clientes:clientes_add' %}">
+                <button type="button" class="btn btn-primary">
+                    <span class="fa fa-plus"></span>Cadastrar
+                </button>
+            </a>
+        </span>
+    </h3>
+    {%if object_list%}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <td>Nome</td>
+                <td>Tipo de Cliente</td>
+                <td>Telefone</td>
+                <td>Email</td>
+                <td>Endereço</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for object in object_list %}
+                <tr>
+                    <td><a href="{{ object.get_absolute_url }}">{{ object.cliente }}</a></td>
+                    <td>{{object.tipo}}</td>
+                    <td>{{object.telefone}}</td>
+                    <td>{{object.email}}</td>
+                    <td>{{object.endereco}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+        <p class="alert alert-warning">Sem itens na lista</p>
+    {% endif %}
+</div>
+{% include "includes/pagination.html" %}
+{% endblock content %}

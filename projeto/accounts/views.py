@@ -18,6 +18,7 @@ def user_login(request):
             print(login(request, user))
             return redirect('core:index')
         else:
+            messages.error(request, 'Login ou senha incorretos')
             return render(request, 'login.html')
     return render(request, template_name, {})
 

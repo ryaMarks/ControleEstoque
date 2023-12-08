@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+{% load static %}
+{% load bootstrap %}
+
+{% block css %}
+  <style>
+    .form-control {
+      margin: 10px;
+    }
+  </style>
+{% endblock css %}
+
+{% block content %}
+  {{ field }}
+  <div class="row">
+    <div class="col-sm-12">
+      <form method="POST" novalidate>
+        {% csrf_token %}
+        <legend style="border-bottom: 1px solid #e5e5e5;">Adicionar Cliente</legend>
+        <h5>Dados do cliente</h5>
+        <div class="row">
+          <div class="col-sm-6">
+            {% for field in form.visible_fields %}
+              <div class="form-group{% if field.errors %} has-error {% endif%}">
+                <label for="{{ field.id_for_label }}">
+                  {% if field.field.required %}
+                    <span class="required">{{ field.label }} </span>
+                  {% else %}
+                    {{ field.label }}
+                  {% endif %}
+                </label>
+                {% render_field field class="form-control" %}
+                {% for error in field.errors %}
+                  <span class="text-muted">{{ error }}</span>
+                {% endfor %}
+              </div>
+            {% endfor %}
+            {{ formset.management_form }}
+          </div>
+        </div>
+
+        <div class="row float-right">
+          <div class="col-sm-12" style="margin-top: 10px;">
+            <div class="form-inline buttons">
+              <a href="{% url 'clientes:clientes_list' %}" class="btn btn-danger">
+                <i class="fa fa-times"></i>
+                Cancelar
+              </a>
+              <div style="padding: 10px;">
+                <button class="btn btn-primary" value="Save">
+                  <i class="fa fa-floppy-o"></i>
+                  Salvar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+{% endblock content %}

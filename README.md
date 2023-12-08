@@ -1,5 +1,5 @@
 # Estoque
-Controle de estoque com Django, inclui fluxo de caixa completo com estoque, e importação/exportação de planilha de registros. Esse programa usa a versão  [Python 3.11.5](https://www.python.org/downloads/release/python-3115/)
+Controle de estoque com Django, inclui fluxo de caixa completo com estoque, e importação/exportação de planilha de registros.
 
 ## Como rodar o projeto:
 
@@ -25,5 +25,5 @@ python manage.py runserver
 
 
 * [python-decouple](https://github.com/henriquebastos/python-decouple)
-* [deploy no PythonAnywhere (Apenas repositorioss públicos)](https://tutorial.djangogirls.org/pt/deploy/)
+* [deploy no PythonAnywhere](https://tutorial.djangogirls.org/pt/deploy/)
 * [Carregando arquivos estaticos no deploy](https://pt.stackoverflow.com/questions/262043/problemas-carregar-static-files-no-django-em-deploy-no-heroku)
