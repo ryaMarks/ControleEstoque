@@ -21,5 +21,5 @@ urlpatterns = [
     path('estoque/', include('projeto.estoque.urls')),
     path('logout/', logout_then_login, name='logout'),
     path('user/', include('projeto.accounts.urls')),
-    path('api/v1/', include(route.urls)),
+    path('api/v1/', include(route.urls), name='api'),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
